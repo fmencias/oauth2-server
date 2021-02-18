@@ -13,9 +13,8 @@ import com.clouway.oauth2.jwt.Jwt.Header;
 import com.clouway.oauth2.jwt.JwtController;
 import com.clouway.oauth2.token.JjwtIdTokenFactory;
 import com.google.common.base.Optional;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -25,6 +24,7 @@ public class OAuth2ApiSupportFactory {
 
   public OAuth2ApiSupport create(OAuth2Config config) {
     final SignatureFactory signatureFactory = new SignatureFactory() {
+    	
       @Override
       public Optional<Signature> createSignature(byte[] signatureValue, Header header) {
         // It's vulnerable multiple algorithms to be supported, so server need to reject
